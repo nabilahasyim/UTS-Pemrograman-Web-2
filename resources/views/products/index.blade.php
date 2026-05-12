@@ -45,6 +45,7 @@
                             <th>Nama Product</th>
                             <th>Kategori</th>
                             <th>Status</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
 
@@ -63,6 +64,12 @@
                                     <span class="badge" style="background-color: #ff85a2;">
                                         {{ $product->status }}
                                     </span>
+                                </td>
+
+                                <td>
+                                    <a href="{{ route('products.edit', $product->id) }}" class="btn btn-warning btn-sm">
+                                        Edit
+                                    </a>
                                 </td>
 
                             </tr>
