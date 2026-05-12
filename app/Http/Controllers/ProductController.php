@@ -1,23 +1,20 @@
 <?php
 
-namespace App\Models;
+namespace App\Http\Controllers;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Product;
+use Illuminate\Http\Request;
 
-class Product extends Model
+class ProductController extends Controller
 {
-    protected $fillable = [
-        'category_id',
-        'name',
-        'price',
-        'stock',
-        'description',
-        'status'
-    ];
-
-    public function category()
+    public function index(Request $request)
     {
-        return $this->belongsTo(Category::class);
+        $search = $request->search;
+
+        $products = Product::with('category')
+            ->where('name', 'like', "%$search%")
+            ->paginate(5);
+
+        return view('products.index', compact('products'));
     }
 }
