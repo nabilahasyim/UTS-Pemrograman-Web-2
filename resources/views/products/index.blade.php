@@ -32,6 +32,11 @@
 
                 </form>
 
+                <a href="{{ route('products.create') }}" class="btn text-white mb-3 rounded-3"
+                    style="background-color: #ff85a2;">
+                    + Tambah Product
+                </a>
+
                 <table class="table table-bordered table-hover align-middle">
 
                     <thead class="text-white" style="background-color: #ff4f81;">
