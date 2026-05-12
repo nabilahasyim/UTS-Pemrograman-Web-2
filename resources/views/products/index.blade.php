@@ -68,6 +68,11 @@
 
                                 <td class="d-flex gap-2">
 
+                                    <a href="{{ route('products.show', $product->id) }}"
+                                        class="btn btn-info btn-sm text-white">
+                                        Detail
+                                    </a>
+
                                     <a href="{{ route('products.edit', $product->id) }}" class="btn btn-warning btn-sm">
                                         Edit
                                     </a>
@@ -84,7 +89,6 @@
                                     </form>
 
                                 </td>
-
                             </tr>
                         @endforeach
 
