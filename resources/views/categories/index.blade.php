@@ -30,7 +30,8 @@
                     </button>
                 </form>
 
-                <a href="" class="btn text-white mb-3 rounded-3" style="background-color: #ff85a2;">
+                <a href="{{ route('categories.create') }}" class="btn text-white mb-3 rounded-3"
+                    style="background-color: #ff85a2;">
                     + Tambah Data
                 </a>
 
