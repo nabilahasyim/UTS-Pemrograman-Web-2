@@ -22,12 +22,14 @@
             <div class="card-body">
 
                 <form action="" method="GET" class="mb-4 d-flex">
+
                     <input type="text" name="search" class="form-control me-2 rounded-3"
                         placeholder="Cari kategori skincare...">
 
                     <button type="submit" class="btn text-white rounded-3" style="background-color: #ff4f81;">
                         Cari
                     </button>
+
                 </form>
 
                 <a href="{{ route('categories.create') }}" class="btn text-white mb-3 rounded-3"
@@ -43,22 +45,37 @@
                             <th>Kategori Skincare</th>
                             <th>Deskripsi</th>
                             <th>Status</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
 
                     <tbody>
+
                         @foreach ($categories as $category)
                             <tr>
+
                                 <td>{{ $loop->iteration }}</td>
+
                                 <td>{{ $category->name }}</td>
+
                                 <td>{{ $category->description }}</td>
+
                                 <td>
                                     <span class="badge" style="background-color: #ff85a2;">
                                         {{ $category->status }}
                                     </span>
                                 </td>
+
+                                <td>
+                                    <a href="{{ route('categories.edit', $category->id) }}"
+                                        class="btn btn-warning btn-sm">
+                                        Edit
+                                    </a>
+                                </td>
+
                             </tr>
                         @endforeach
+
                     </tbody>
 
                 </table>
@@ -68,6 +85,7 @@
                 </div>
 
             </div>
+
         </div>
 
     </div>
