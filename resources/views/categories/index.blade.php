@@ -68,6 +68,11 @@
 
                                 <td class="d-flex gap-2">
 
+                                    <a href="{{ route('categories.show', $category->id) }}"
+                                        class="btn btn-info btn-sm text-white">
+                                        Detail
+                                    </a>
+
                                     <a href="{{ route('categories.edit', $category->id) }}"
                                         class="btn btn-warning btn-sm">
                                         Edit
