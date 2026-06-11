@@ -46,6 +46,24 @@
                     </div>
 
                     <div class="mb-3">
+                        <label>Harga</label>
+
+                        <input type="number" name="price" class="form-control" placeholder="Masukkan harga">
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Stock</label>
+
+                        <input type="number" name="stock" class="form-control" placeholder="Masukkan stock">
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Deskripsi</label>
+
+                        <textarea name="description" class="form-control" rows="3" placeholder="Masukkan deskripsi"></textarea>
+                    </div>
+
+                    <div class="mb-3">
                         <label class="form-label">Status</label>
 
                         <select name="status" class="form-control">

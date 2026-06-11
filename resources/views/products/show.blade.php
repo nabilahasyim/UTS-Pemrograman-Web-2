@@ -32,6 +32,21 @@
                 </div>
 
                 <div class="mb-3">
+                    <h5>Harga</h5>
+                    <p>Rp {{ number_format($product->price) }}</p>
+                </div>
+
+                <div class="mb-3">
+                    <h5>Stock</h5>
+                    <p>{{ $product->stock }}</p>
+                </div>
+
+                <div class="mb-3">
+                    <h5>Deskripsi</h5>
+                    <p>{{ $product->description }}</p>
+                </div>
+
+                <div class="mb-3">
                     <h5>Status</h5>
 
                     <span class="badge" style="background-color: #ff4f81;">

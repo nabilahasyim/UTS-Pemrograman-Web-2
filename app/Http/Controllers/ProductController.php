@@ -8,15 +8,25 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function index(Request $request)
-    {
-        $search = $request->search;
+   public function index(Request $request)
+{
+    $query = Product::with('category');
 
-        $products = Product::with('category')
-            ->where('name', 'like', "%$search%")
-            ->paginate(5);
+    if ($request->search) {
 
-        return view('products.index', compact('products'));
+        $query->where('name', 'like', '%' . $request->search . '%');
+
+    }
+
+    if ($request->category_id) {
+
+        $query->where('category_id', $request->category_id);
+    }
+
+    $products = $query->paginate(5);
+
+    $categories = Category::all();
+    return view('products.index', compact('products', 'categories'));
     }
 
     public function show($id)
@@ -39,6 +49,9 @@ class ProductController extends Controller
 
         $product->category_id = $request->category_id;
         $product->name = $request->name;
+        $product->price = $request->price;
+        $product->stock = $request->stock;
+        $product->description = $request->description;
         $product->status = $request->status;
 
         $product->save();
@@ -60,6 +73,9 @@ class ProductController extends Controller
 
     $product->category_id = $request->category_id;
     $product->name = $request->name;
+    $product->price = $request->price;
+    $product->stock = $request->stock;
+    $product->description = $request->description;
     $product->status = $request->status;
 
     $product->save();
