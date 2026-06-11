@@ -84,22 +84,36 @@ class ProductController extends Controller
     return view('products.edit', compact('product', 'categories'));
     }
 
-    public function update(Request $request, $id)
-    {
-    $product = Product::findOrFail($id);
+   public function update(Request $request, $id)
+{
+    try {
 
-    $product->category_id = $request->category_id;
-    $product->name = $request->name;
-    $product->brand = $request->brand;
-    $product->price = $request->price;
-    $product->stock = $request->stock;
-    $product->description = $request->description;
-    $product->status = $request->status;
+        DB::beginTransaction();
 
-    $product->save();
+        $product = Product::findOrFail($id);
 
-    return redirect()->route('products.index');
+        $product->category_id = $request->category_id;
+        $product->name = $request->name;
+        $product->brand = $request->brand;
+        $product->price = $request->price;
+        $product->stock = $request->stock;
+        $product->description = $request->description;
+        $product->status = $request->status;
+
+        $product->save();
+
+        DB::commit();
+
+        return redirect()->route('products.index');
+
+    } catch (\Exception $e) {
+
+        DB::rollBack();
+
+        return back()->with('error', $e->getMessage());
+
     }
+}
 
     public function destroy($id)
     {
