@@ -98,6 +98,7 @@
                         <th>No</th>
                         <th>Category</th>
                         <th>Product Name</th>
+                        <th>Brand</th>
                         <th>Price</th>
                         <th>Stock</th>
                         <th>Description</th>
@@ -117,6 +118,8 @@
                             <td>{{ $item->category->name }}</td>
 
                             <td>{{ $item->name }}</td>
+
+                            <td>{{ $item->brand }}</td>
 
                             <td>
                                 Rp {{ number_format($item->price) }}

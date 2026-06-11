@@ -46,6 +46,12 @@
                     </div>
 
                     <div class="mb-3">
+                        <label class="form-label">Brand</label>
+
+                        <input type="text" name="brand" class="form-control" placeholder="Masukkan Brand">
+                    </div>
+
+                    <div class="mb-3">
                         <label>Harga</label>
 
                         <input type="number" name="price" class="form-control" placeholder="Masukkan harga">

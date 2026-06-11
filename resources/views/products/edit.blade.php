@@ -50,6 +50,12 @@
                     </div>
 
                     <div class="mb-3">
+                        <label class="form-label">Brand</label>
+
+                        <input type="text" name="brand" class="form-control" value="{{ $product->brand }}">
+                    </div>
+
+                    <div class="mb-3">
                         <label>Harga</label>
 
                         <input type="number" name="price" class="form-control" value="{{ $product->price }}">
