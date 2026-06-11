@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -44,7 +45,11 @@ class ProductController extends Controller
     }
 
     public function store(Request $request)
-    {
+{
+    try {
+
+        DB::beginTransaction();
+
         $product = new Product();
 
         $product->category_id = $request->category_id;
@@ -57,8 +62,19 @@ class ProductController extends Controller
 
         $product->save();
 
+        DB::commit();
+
         return redirect()->route('products.index');
+
+    } catch (\Exception $e) {
+
+        DB::rollBack();
+
+        return back()->with('error', $e->getMessage());
+
     }
+}
+
     public function edit($id)
     {
     $product = Product::findOrFail($id);
