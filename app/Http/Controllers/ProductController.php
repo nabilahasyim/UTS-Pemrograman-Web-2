@@ -130,4 +130,13 @@ class ProductController extends Controller
 
     return view('products.trash', compact('products'));
     }
+
+    public function restore($id)
+    {
+    $product = Product::onlyTrashed()->findOrFail($id);
+
+    $product->restore();
+
+    return redirect()->route('products.trash');
+    }
 }

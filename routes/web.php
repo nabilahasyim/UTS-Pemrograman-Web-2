@@ -12,3 +12,6 @@ Route::resource('products', ProductController::class);
 
 Route::get('/products-trash', [ProductController::class, 'trash'])
     ->name('products.trash');
+
+Route::put('/products/{id}/restore', [ProductController::class, 'restore'])
+    ->name('products.restore');

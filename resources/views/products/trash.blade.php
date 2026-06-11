@@ -73,7 +73,21 @@
                         <td>{{ $product->deleted_at }}</td>
 
                         <td>
-                            Restore | Force Delete
+
+                            <form action="{{ route('products.restore', $product->id) }}" method="POST"
+                                class="d-inline">
+
+                                @csrf
+                                @method('PUT')
+
+                                <button type="submit" class="btn btn-success btn-sm">
+                                    Restore
+                                </button>
+
+                            </form>
+
+                            Force Delete
+
                         </td>
 
                     </tr>
