@@ -123,4 +123,11 @@ class ProductController extends Controller
 
     return redirect()->route('products.index');
     }
+
+    public function trash()
+    {
+    $products = Product::onlyTrashed()->paginate(5);
+
+    return view('products.trash', compact('products'));
+    }
 }

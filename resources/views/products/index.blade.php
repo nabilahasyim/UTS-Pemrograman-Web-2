@@ -45,10 +45,19 @@
             Product Skincare
         </h1>
 
-        <a href="{{ route('products.create') }}" class="btn text-white mb-3"
-            style="background-color:#ff85a2; border:none;">
-            + Add Product
-        </a>
+        <div class="mb-3">
+
+            <a href="{{ route('products.create') }}" class="btn text-white mb-3"
+                style="background-color:#ff85a2; border:none;">
+                + Add Product
+            </a>
+            <a href="{{ route('products.trash') }}" class="btn text-white mb-3"
+                style="background-color:#ff85a2; border:none;">
+                Trash Product
+            </a>
+
+        </div>
+
 
         <!-- SEARCH & FILTER -->
         <form action="{{ route('products.index') }}" method="GET" class="row mb-3">
