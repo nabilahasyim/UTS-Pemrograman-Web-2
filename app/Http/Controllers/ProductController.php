@@ -139,4 +139,13 @@ class ProductController extends Controller
 
     return redirect()->route('products.trash');
     }
+
+    public function forceDelete($id)
+    {
+    $product = Product::onlyTrashed()->findOrFail($id);
+
+    $product->forceDelete();
+
+    return redirect()->route('products.trash');
+    }
 }

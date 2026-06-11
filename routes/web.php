@@ -15,3 +15,6 @@ Route::get('/products-trash', [ProductController::class, 'trash'])
 
 Route::put('/products/{id}/restore', [ProductController::class, 'restore'])
     ->name('products.restore');
+
+Route::delete('/products/{id}/force-delete', [ProductController::class, 'forceDelete'])
+    ->name('products.forceDelete');

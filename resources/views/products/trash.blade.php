@@ -86,7 +86,17 @@
 
                             </form>
 
-                            Force Delete
+                            <form action="{{ route('products.forceDelete', $product->id) }}" method="POST"
+                                class="d-inline">
+
+                                @csrf
+                                @method('DELETE')
+
+                                <button type="submit" class="btn btn-danger btn-sm">
+                                    Force Delete
+                                </button>
+
+                            </form>
 
                         </td>
 
